@@ -24,7 +24,8 @@ jobs:
               repo: context.repo.repo,
               pull_number: context.issue.number,
             });
-
+             console.log("context.issue.number:", context.issue.number);
+            console.log("context.payload.pull_request.number:", context.payload.pull_request ? context.payload.pull_request.number : "없음");
             const uniqueReviews = new Map();
             reviews.data.forEach(review => {
               uniqueReviews.set(review.user.login, review.state);
