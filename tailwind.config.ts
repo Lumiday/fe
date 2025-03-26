@@ -9,6 +9,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Pretendard', 'sans-serif'],
+        ryudung: ['OnglipsRyudung', 'sans-serif'],
+        tmoney: ['TmoneyRoundWind', 'sans-serif'],
+        gangwon: ['GangwonEdu', 'sans-serif'],
+        nanum: ['NanumMyeongjo', 'sans-serif'],
+      },
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
@@ -52,6 +59,7 @@ const config: Config = {
         },
         LumiDayGray: {
           900: '#1E1E1E',
+          600: '#333333',
           500: '#999999',
           100: '#F0F0F0',
         },
