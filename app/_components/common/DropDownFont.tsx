@@ -75,7 +75,7 @@ export default function DropDownFont({
             <SelectItem
               key={option.value}
               value={option.value}
-              className={`rounded-none hover:bg-LumiDayGray-100 ${option.fontClass}`}
+              className={`rounded-none h-10 hover:bg-LumiDayGray-100 ${option.fontClass}`}
             >
               {option.label}
             </SelectItem>
