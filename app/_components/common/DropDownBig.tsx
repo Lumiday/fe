@@ -9,8 +9,8 @@ import Switch from './DropDownBIgSwitch';
 interface DropDownBigProps {
   name: string;
   children: React.ReactNode;
-  checked: boolean;
-  setChecked: (checked: boolean) => void;
+  checked?: boolean;
+  setChecked?: (checked: boolean) => void;
   isSwitchVisible: boolean;
 }
 
@@ -30,7 +30,7 @@ export default function DropDownBig({
       <AccordionItem value="item-1" className="w-full border-0">
         <AccordionTrigger className="flex w-full p-5 items-center justify-between ">
           <div className="flex items-center justify-center gap-[10px]">
-            {isSwitchVisible && (
+            {isSwitchVisible && checked !== undefined && setChecked && (
               <Switch checked={checked} setChecked={setChecked} />
             )}
             <p className="text-LumiDayGray-900 text-[20px] font-medium leading-normal">
