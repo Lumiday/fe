@@ -35,7 +35,7 @@ export default function DropDownFont({
       fontClass: 'font-gangwon text-base',
     },
     { value: 'nanum', label: '나눔명조', fontClass: 'font-nanum text-base' },
-    { value: 'tmoney', label: '티머니 둥근바람', fontClass: 'font-tmoney' },
+    { value: 'tmoney', label: '티머니둥근바람', fontClass: 'font-tmoney' },
   ];
 
   const selectedFontClass =
