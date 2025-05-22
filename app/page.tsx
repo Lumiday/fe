@@ -1,5 +1,9 @@
-import Image from 'next/image';
+'use client';
 
 export default function Home() {
-  return <div>페이지입니다 TEST test</div>;
+  return (
+    <>
+      <div>home</div>
+    </>
+  );
 }
