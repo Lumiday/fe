@@ -62,7 +62,7 @@ export default function DropDownSize({
             <SelectItem
               key={option.value}
               value={option.value}
-              className="rounded-none h-10 hover:bg-LumiDayGray-100"
+              className="h-10 rounded-none hover:bg-LumiDayGray-100"
             >
               {option.label}
             </SelectItem>
