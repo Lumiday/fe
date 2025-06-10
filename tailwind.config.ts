@@ -8,6 +8,11 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    fontSize: {
+      '125-500': ['1.25rem', { fontWeight: '500' }],
+      '1-500': ['1rem', { fontWeight: '500' }],
+      '875-400': ['0.875rem', { fontWeight: '400' }],
+    },
     extend: {
       fontFamily: {
         sans: ['Pretendard', 'sans-serif'],
@@ -58,10 +63,10 @@ const config: Config = {
           '5': 'hsl(var(--chart-5))',
         },
         LumiDayGray: {
-          900: '#1E1E1E',
-          600: '#333333',
-          500: '#999999',
-          100: '#F0F0F0',
+          '1e1': '#1E1E1E',
+          '333': '#333333',
+          '999': '#999999',
+          f0f: '#F0F0F0',
         },
         LumiDayGreen: '#03C75A',
       },
