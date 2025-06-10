@@ -28,7 +28,7 @@ export default function DropDownBig({
       className="flex rounded-[10px] border border-LumiDayGray-500 bg-white w-[600px] overflow-hidden"
     >
       <AccordionItem value="item-1" className="w-full border-0">
-        <AccordionTrigger className="flex w-full p-5 items-center justify-between ">
+        <AccordionTrigger className="flex items-center justify-between w-full p-5 ">
           <div className="flex items-center justify-center gap-[10px]">
             {isSwitchVisible && checked !== undefined && setChecked && (
               <Switch checked={checked} setChecked={setChecked} />
