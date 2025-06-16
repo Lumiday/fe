@@ -38,7 +38,7 @@ export default function DropDownBig({
             </p>
           </div>
         </AccordionTrigger>
-        <AccordionContent className="p-5 border-t-2 border-LumiDayGray-100">
+        <AccordionContent className=" flex flex-col p-5 border-t-2 border-LumiDayGray-100 gap-5">
           {children}
         </AccordionContent>
       </AccordionItem>
