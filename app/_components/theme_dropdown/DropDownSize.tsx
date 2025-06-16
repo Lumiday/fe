@@ -6,11 +6,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { SizeType, SizeOption } from './Theme_Dropdown';
+import { SizeType, SizeOption } from '@/type/components';
 
 interface DropDownSizeProps {
   selectedValue: SizeType;
-  setSelectedValue: React.Dispatch<React.SetStateAction<SizeType>>;
+  setSelectedValue: (size: SizeType) => void;
 }
 
 export default function DropDownSize({
@@ -26,8 +26,7 @@ export default function DropDownSize({
   ];
 
   const handleValueChange = (value: string) => {
-    const sizeValue = value as SizeType;
-    setSelectedValue(sizeValue);
+    setSelectedValue(value as SizeType);
   };
 
   return (

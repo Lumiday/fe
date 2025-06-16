@@ -1,9 +1,9 @@
 import React from 'react';
-import { ColorType } from './Theme_Dropdown';
+import { ColorType } from '@/type/components';
 
 interface ColorSwatchSelectorProps {
   selectedColor: ColorType;
-  setSelectedColor: React.Dispatch<React.SetStateAction<ColorType>>;
+  setSelectedColor: (color: ColorType) => void;
 }
 
 export default function ColorSwatchSelector({

@@ -7,57 +7,67 @@ import DropDownSize from './DropDownSize';
 import ColorSwatchSelector from './ColorSwatchSelector';
 import PatternSelector from './PatternSelector';
 import CheckBoxSelector from './CheckBoxSelector';
-
-export type FontType =
-  | 'pretendard'
-  | 'ryudung'
-  | 'gangwon'
-  | 'nanum'
-  | 'tmoney';
-export type SizeType = 'normal' | 'smaller' | 'larger';
-export type ColorType = 'white' | 'beige' | 'light pink' | 'pink' | 'sky';
-
-export interface FontOption {
-  value: FontType;
-  label: string;
-  fontClass: string;
-}
-
-export interface SizeOption {
-  value: SizeType;
-  label: string;
-}
-
-export interface CheckBoxState {
-  disableZoom: boolean;
-  scrollEffect: boolean;
-}
+import {
+  ColorType,
+  FontType,
+  SizeType,
+  PatternType,
+  CheckBoxState,
+} from '@/type/components';
 
 export default function ThemeDropdown() {
   const [font, setFont] = useState<FontType>('pretendard');
   const [size, setSize] = useState<SizeType>('normal');
   const [selectedColor, setSelectedColor] = useState<ColorType>('white');
-  const [selectedPattern, setSelectedPattern] = useState<string>('없음');
+  const [selectedPattern, setSelectedPattern] = useState<PatternType>('없음');
   const [checkBoxState, setCheckBoxState] = useState<CheckBoxState>({
     disableZoom: false,
     scrollEffect: false,
   });
 
+  const handleFontChange = (newFont: FontType) => {
+    setFont(newFont);
+  };
+
+  const handleSizeChange = (newSize: SizeType) => {
+    setSize(newSize);
+  };
+
+  const handleColorChange = (newColor: ColorType) => {
+    setSelectedColor(newColor);
+  };
+
+  const handlePatternChange = (newPattern: PatternType) => {
+    setSelectedPattern(newPattern);
+  };
+
+  const handleCheckBoxChange = (newState: CheckBoxState) => {
+    setCheckBoxState(newState);
+  };
+
   return (
     <div>
       <DropDownBig name="테마" isSwitchVisible={false}>
-        <DropDownFont selectedValue={font} setSelectedValue={setFont} />
-        <DropDownSize selectedValue={size} setSelectedValue={setSize} />
+        <DropDownFont
+          selectedValue={font}
+          setSelectedValue={handleFontChange}
+        />
+        <DropDownSize
+          selectedValue={size}
+          setSelectedValue={handleSizeChange}
+        />
         <ColorSwatchSelector
-          key={selectedColor}
           selectedColor={selectedColor}
-          setSelectedColor={setSelectedColor}
+          setSelectedColor={handleColorChange}
         />
         <PatternSelector
           selectedPattern={selectedPattern}
-          setSelectedPattern={setSelectedPattern}
+          setSelectedPattern={handlePatternChange}
         />
-        <CheckBoxSelector state={checkBoxState} setState={setCheckBoxState} />
+        <CheckBoxSelector
+          state={checkBoxState}
+          setState={handleCheckBoxChange}
+        />
       </DropDownBig>
     </div>
   );

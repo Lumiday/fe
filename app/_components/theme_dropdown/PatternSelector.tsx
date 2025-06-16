@@ -1,17 +1,23 @@
 import React from 'react';
+import { PatternType, PatternOption } from '@/type/components';
 
 interface PatternSelectorProps {
-  selectedPattern: string;
-  setSelectedPattern: React.Dispatch<React.SetStateAction<string>>;
-  patterns?: string[];
+  selectedPattern: PatternType;
+  setSelectedPattern: (pattern: PatternType) => void;
+  patterns?: PatternOption[];
 }
 
 export default function PatternSelector({
   selectedPattern,
   setSelectedPattern,
-  patterns = ['없음', '종이', '체크', '작은 꽃'],
+  patterns = [
+    { value: '없음', label: '없음' },
+    { value: '종이', label: '종이' },
+    { value: '체크', label: '체크' },
+    { value: '작은 꽃', label: '작은 꽃' },
+  ],
 }: PatternSelectorProps) {
-  const handlePatternClick = (pattern: string) => {
+  const handlePatternClick = (pattern: PatternType) => {
     setSelectedPattern(pattern);
   };
 
@@ -23,22 +29,22 @@ export default function PatternSelector({
         </div>
       </div>
       <div className="flex justify-start items-center gap-2.5">
-        {patterns.map((pattern, index) => (
+        {patterns.map((pattern) => (
           <div
-            key={index}
+            key={pattern.value}
             className={`h-10 px-2.5 py-1.5 bg-zinc-100 rounded-[5px] hover:text-stone-900 text-neutral-400 outline-1 outline-offset-[-1px] hover:outline-stone-900 flex justify-center items-center gap-2.5 cursor-pointer ${
-              selectedPattern === pattern
+              selectedPattern === pattern.value
                 ? 'outline outline-1 outline-offset-[-1px] outline-gray-900'
                 : 'outline-none'
-            }`}
-            onClick={() => handlePatternClick(pattern)}
+            } ${pattern.className || ''}`}
+            onClick={() => handlePatternClick(pattern.value)}
           >
             <div
               className={`justify-start text-sm font-normal font-['Pretendard'] ${
-                selectedPattern === pattern ? 'text-gray-900' : ''
+                selectedPattern === pattern.value ? 'text-gray-900' : ''
               }`}
             >
-              {pattern}
+              {pattern.label}
             </div>
           </div>
         ))}

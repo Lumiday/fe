@@ -1,13 +1,36 @@
 import React from 'react';
 import Image from 'next/image';
-import { CheckBoxState } from './Theme_Dropdown';
-
-// 이미지 import
 import CheckboxChecked from '@/public/imgs/CheckboxChecked.svg.svg';
+import { CheckBoxState, CheckBoxProps } from '@/type/components';
 
 interface CheckBoxSelectorProps {
   state: CheckBoxState;
-  setState: React.Dispatch<React.SetStateAction<CheckBoxState>>;
+  setState: (state: CheckBoxState) => void;
+}
+
+function CheckBoxItem({ checked, onChange, label }: CheckBoxProps) {
+  return (
+    <div className="h-10 inline-flex justify-start items-center gap-2.5">
+      <div className="flex justify-start items-center gap-[5px]">
+        <div className="w-4 h-4 relative cursor-pointer" onClick={onChange}>
+          {checked ? (
+            <Image
+              src={CheckboxChecked}
+              alt="Checked"
+              width={16}
+              height={16}
+              className="object-contain"
+            />
+          ) : (
+            <div className="w-4 h-4 left-0 top-0 absolute rounded-[3px] border border-neutral-400 bg-white" />
+          )}
+        </div>
+        <div className="justify-start text-stone-900 text-sm font-normal font-['Pretendard']">
+          {label}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default function CheckBoxSelector({
@@ -15,7 +38,8 @@ export default function CheckBoxSelector({
   setState,
 }: CheckBoxSelectorProps) {
   const handleCheckboxChange = (key: keyof CheckBoxState) => {
-    setState((prev) => ({ ...prev, [key]: !prev[key] }));
+    const newState = { ...state, [key]: !state[key] };
+    setState(newState);
   };
 
   return (
@@ -26,52 +50,16 @@ export default function CheckBoxSelector({
         </div>
       </div>
       <div className="inline-flex flex-col justify-center items-start">
-        <div className="h-10 inline-flex justify-start items-center gap-2.5">
-          <div className="flex justify-start items-center gap-[5px]">
-            <div
-              className="w-4 h-4 relative cursor-pointer"
-              onClick={() => handleCheckboxChange('disableZoom')}
-            >
-              {state.disableZoom ? (
-                <Image
-                  src={CheckboxChecked}
-                  alt="Checked"
-                  width={16}
-                  height={16}
-                  className="object-contain"
-                />
-              ) : (
-                <div className="w-4 h-4 left-0 top-0 absolute rounded-[3px] border border-neutral-400 bg-white" />
-              )}
-            </div>
-            <div className="justify-start text-stone-900 text-sm font-normal font-['Pretendard']">
-              청첩장 확대 금지
-            </div>
-          </div>
-        </div>
-        <div className="h-10 inline-flex justify-start items-center gap-2.5">
-          <div className="flex justify-start items-center gap-[5px]">
-            <div
-              className="w-4 h-4 relative cursor-pointer"
-              onClick={() => handleCheckboxChange('scrollEffect')}
-            >
-              {state.scrollEffect ? (
-                <Image
-                  src={CheckboxChecked}
-                  alt="Checked"
-                  width={16}
-                  height={16}
-                  className="object-contain"
-                />
-              ) : (
-                <div className="w-4 h-4 left-0 top-0 absolute rounded-[3px] border border-neutral-400 bg-white" />
-              )}
-            </div>
-            <div className="justify-start text-stone-900 text-sm font-normal font-['Pretendard']">
-              스크롤시 등장 효과
-            </div>
-          </div>
-        </div>
+        <CheckBoxItem
+          checked={state.disableZoom}
+          onChange={() => handleCheckboxChange('disableZoom')}
+          label="청첩장 확대 금지"
+        />
+        <CheckBoxItem
+          checked={state.scrollEffect}
+          onChange={() => handleCheckboxChange('scrollEffect')}
+          label="스크롤시 등장 효과"
+        />
       </div>
     </div>
   );

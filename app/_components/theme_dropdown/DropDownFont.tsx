@@ -6,11 +6,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { FontType, FontOption } from './Theme_Dropdown';
+import { FontType, FontOption } from '@/type/components';
 
 interface DropDownFontProps {
   selectedValue: FontType;
-  setSelectedValue: React.Dispatch<React.SetStateAction<FontType>>;
+  setSelectedValue: (font: FontType) => void;
 }
 
 export default function DropDownFont({
@@ -35,8 +35,7 @@ export default function DropDownFont({
     options.find((option) => option.value === selectedValue)?.fontClass || '';
 
   const handleValueChange = (value: string) => {
-    const fontValue = value as FontType;
-    setSelectedValue(fontValue);
+    setSelectedValue(value as FontType);
   };
 
   return (
