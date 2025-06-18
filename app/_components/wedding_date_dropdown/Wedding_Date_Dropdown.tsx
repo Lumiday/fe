@@ -1,0 +1,48 @@
+'use client';
+
+import React, { useState } from 'react';
+import CheckBoxGroup from '@/app/_components/common/CheckBox';
+import DropDownBig from '@/app/_components/common/DropDownBig';
+
+const Wedding_Date_Dropdown = () => {
+  const [displayOptionsStates, setDisplayOptionsStates] = useState<
+    Record<string, boolean>
+  >({});
+
+  const handleDisplayOptionsStates = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    itemId: string
+  ) => {
+    setDisplayOptionsStates((prev) => ({
+      ...prev,
+      [itemId]: e.target.checked,
+    }));
+  };
+
+  const displayOptionsItems = [
+    {
+      id: '1',
+      label: '캘린더 표시',
+      value: 'Calendar',
+      checked: displayOptionsStates['1'] || false, //왼쪽 값이 undefined, null, false 등 "falsy"한 값이면 오른쪽 값(false)를 반환 그렇지 않으면 checkedStates['1'] 그대로 사용
+    },
+    {
+      id: '2',
+      label: '디데이 표시',
+      value: 'D-Day',
+      checked: displayOptionsStates['2'] || false,
+    },
+  ];
+
+  return (
+    <DropDownBig name="예식 일시" isSwitchVisible={false}>
+      <CheckBoxGroup
+        title="표시"
+        items={displayOptionsItems}
+        onChange={handleDisplayOptionsStates}
+      />
+    </DropDownBig>
+  );
+};
+
+export default Wedding_Date_Dropdown;
