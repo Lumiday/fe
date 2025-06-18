@@ -14,7 +14,7 @@ const Input = (props: InputProps) => {
       <div className="flex items-center h-[2.5rem]">
         <label
           htmlFor={props.id}
-          className="inline-block w-[6.25rem] py-[0.4375rem] px-[0.25rem] bg-[pink] p text-1-500 text-LumiDayGray-1e1 mr-[0.25rem]"
+          className="inline-block w-[6.25rem] py-[0.4375rem] px-[0.25rem]  text-1-500 text-LumiDayGray-1e1 mr-[0.25rem]"
         >
           {props.label}
         </label>
@@ -26,7 +26,11 @@ const Input = (props: InputProps) => {
           className="border h-full p-[0.625rem] border-LumiDayGray-999 rounded-[0.3125rem]"
           style={{ width: `${props.inputWidth}rem` }}
         />
-        {props.isButton && <button>검색</button>}
+        {props.isButton && (
+          <button className="py-[0.375rem] px-[0.625rem] border border-LumiDayGray-1e1 rounded-[0.3125rem] h-[2.5rem] ml-[0.62rem] text-875-400 text-LumiDayGray-1e1">
+            검색
+          </button>
+        )}
       </div>
     </div>
   );
