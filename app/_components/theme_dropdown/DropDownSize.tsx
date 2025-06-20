@@ -31,7 +31,7 @@ export default function DropDownSize({
 
   return (
     <div className="self-stretch inline-flex justify-start items-center gap-0.5">
-      <div className="w-24 h-10 px-1 py-1.5 flex justify-start items-center gap-2.5">
+      <div className="w-[100px] h-10 px-1 py-1.5 flex justify-start items-center gap-2.5">
         <div className="justify-start text-gray-900 text-base font-medium font-['Pretendard']">
           글꼴 크기
         </div>
