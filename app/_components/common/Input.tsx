@@ -1,12 +1,4 @@
-interface InputProps {
-  type: string;
-  label: string;
-  inputWidth: number;
-  id: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  isButton?: boolean;
-}
+import { InputProps } from '@/type/components';
 
 const Input = (props: InputProps) => {
   return (

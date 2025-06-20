@@ -5,14 +5,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import Switch from './DropDownBIgSwitch';
-
-interface DropDownBigProps {
-  name: string;
-  children: React.ReactNode;
-  checked?: boolean;
-  setChecked?: (checked: boolean) => void;
-  isSwitchVisible: boolean;
-}
+import { DropDownBigProps } from '@/type/components';
 
 export default function DropDownBig({
   name,
