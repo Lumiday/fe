@@ -8,7 +8,7 @@ interface InputProps {
   isButton?: boolean;
 }
 
-const Input = (props: InputProps) => {
+const CommonInput = (props: InputProps) => {
   return (
     <div>
       <div className="flex items-center h-[2.5rem]">
@@ -36,4 +36,4 @@ const Input = (props: InputProps) => {
   );
 };
 
-export default Input;
+export default CommonInput;
