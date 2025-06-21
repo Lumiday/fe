@@ -3,11 +3,14 @@
 import React, { useState } from 'react';
 import CheckBoxGroup from '@/app/_components/common/CheckBox';
 import DropDownBig from '@/app/_components/common/DropDownBig';
+import DropDownTime from '@/app/_components/wedding_date_dropdown/DropDownTime';
+import DropDownDate from '@/app/_components/wedding_date_dropdown/DropDownDate';
 
 const Wedding_Date_Dropdown = () => {
   const [displayOptionsStates, setDisplayOptionsStates] = useState<
     Record<string, boolean>
   >({});
+  const [selectedValue, setSelectedValue] = useState('');
 
   const handleDisplayOptionsStates = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -34,8 +37,17 @@ const Wedding_Date_Dropdown = () => {
     },
   ];
 
+  const handleTimeChange = (item: string) => {
+    setSelectedValue(item);
+  };
+
   return (
     <DropDownBig name="예식 일시" isSwitchVisible={false}>
+      <DropDownDate />
+      <DropDownTime
+        selectedValue={selectedValue} //현재선택된 시간
+        setSelectedValue={handleTimeChange} //부모컴포넌트에서 전달됨 함수로 새로운 시간값을 설정해 부모상태 업
+      />
       <CheckBoxGroup
         title="표시"
         items={displayOptionsItems}
