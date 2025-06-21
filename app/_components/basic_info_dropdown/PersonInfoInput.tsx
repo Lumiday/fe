@@ -1,40 +1,6 @@
-import Image from 'next/image';
-import {
-  CheckBoxProps,
-  PersonInfo,
-  PersonInfoInputProps,
-} from '@/type/components';
-import CheckboxChecked from '@/public/imgs/CheckboxChecked.svg.svg';
-import CommonInput from '../common/CommonInput';
-
-function CheckBoxItem({ checked, onChange, label }: CheckBoxProps) {
-  return (
-    <div className="h-10 inline-flex justify-start items-center gap-2.5">
-      <div className="flex justify-start items-center gap-[5px]">
-        <div className="w-4 h-4 relative cursor-pointer" onClick={onChange}>
-          {checked ? (
-            <Image
-              src={CheckboxChecked}
-              alt="Checked"
-              width={16}
-              height={16}
-              className="object-contain"
-            />
-          ) : (
-            <div className="w-4 h-4 left-0 top-0 absolute rounded-[3px] border border-neutral-400 bg-white" />
-          )}
-        </div>
-        <div
-          className={`justify-start text-sm font-normal font-['Pretendard'] ${
-            checked ? 'text-stone-900' : 'text-neutral-400'
-          }`}
-        >
-          {label}
-        </div>
-      </div>
-    </div>
-  );
-}
+import { PersonInfo, PersonInfoInputProps } from '@/type/components';
+import CheckBoxGrayOut from './CheckBoxGrayOut';
+import CommonInputSize from '../common/CommonInputSize';
 
 export default function PersonInfoInput({
   label,
@@ -52,25 +18,25 @@ export default function PersonInfoInput({
 
   return (
     <div className="inline-flex justify-start items-start gap-0.5">
-      <div className="w-[100px] h-10 px-1 py-1.5 flex justify-start items-center gap-2.5">
-        <div className="justify-start text-stone-900 text-base font-medium font-['Pretendard']">
+      <div className="w-[6.25rem] h-[2.5rem] px-[0.25rem] py-[0.375rem] flex justify-start items-center gap-[0.625rem]">
+        <div className="justify-start text-LumiDayGray-1e1 text-1-500 font-['Pretendard']">
           {label}
         </div>
       </div>
-      <div className="inline-flex flex-col justify-center items-start gap-2.5">
-        <div className="inline-flex justify-start items-center gap-2.5">
-          <div className="flex justify-start items-center gap-2.5">
-            <CommonInput
+      <div className="inline-flex flex-col justify-center items-start gap-[0.625rem]">
+        <div className="inline-flex justify-start items-center gap-[0.625rem]">
+          <div className="flex justify-start items-center gap-[0.625rem]">
+            <CommonInputSize
               type="text"
-              inputWidth={58}
+              inputWidth={3.625}
               id={`${label}-lastName`}
               value={person.lastName}
               onChange={(e) => handleInputChange('lastName', e.target.value)}
               placeholder="성"
             />
-            <CommonInput
+            <CommonInputSize
               type="text"
-              inputWidth={104}
+              inputWidth={6.5}
               id={`${label}-firstName`}
               value={person.firstName}
               onChange={(e) => handleInputChange('firstName', e.target.value)}
@@ -78,16 +44,16 @@ export default function PersonInfoInput({
             />
           </div>
           {showDeceasedCheckbox && (
-            <CheckBoxItem
+            <CheckBoxGrayOut
               checked={person.isDeceased ?? false}
               onChange={handleCheckboxChange}
               label="故"
             />
           )}
         </div>
-        <CommonInput
+        <CommonInputSize
           type="tel"
-          inputWidth={172}
+          inputWidth={10.75}
           id={`${label}-phone`}
           value={person.phone}
           onChange={(e) => handleInputChange('phone', e.target.value)}
