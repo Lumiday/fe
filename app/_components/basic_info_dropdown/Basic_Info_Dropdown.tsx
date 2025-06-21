@@ -51,7 +51,7 @@ export default function BasicInfoDropdown() {
   return (
     <div>
       <DropDownBig name="기본 정보" isSwitchVisible={false}>
-        <div className="flex flex-col justify-start items-start gap-5">
+        <div className="flex flex-col justify-start items-start gap-[1.25rem]">
           <PersonInfoInput
             label="신랑"
             person={groom}
@@ -69,8 +69,8 @@ export default function BasicInfoDropdown() {
             setPerson={setGroomMother}
           />
         </div>
-        <div className="w-[599px] h-px bg-zinc-100" />
-        <div className="flex flex-col justify-start items-start gap-5">
+        <div className="w-[37.4375rem] h-[0.0625rem] bg-LumiDayGray-f0f" />
+        <div className="flex flex-col justify-start items-start gap-[1.25rem]">
           <PersonInfoInput
             label="신부"
             person={bride}
@@ -88,11 +88,12 @@ export default function BasicInfoDropdown() {
             setPerson={setBrideMother}
           />
         </div>
-        <div className="w-[599px] h-px bg-zinc-100" />
+        <div className="w-[37.4375rem] h-[0.0625rem] bg-LumiDayGray-f0f" />
         <DeceasedDisplaySelector
           selectedDisplay={selectedDisplay}
           setSelectedDisplay={handleDisplayChange}
         />
+        <div className="w-[37.4375rem] h-[0.0625rem] bg-LumiDayGray-f0f" />
       </DropDownBig>
     </div>
   );

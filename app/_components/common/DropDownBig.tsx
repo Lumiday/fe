@@ -18,20 +18,18 @@ export default function DropDownBig({
     <Accordion
       collapsible
       type="single"
-      className="flex rounded-[10px] border border-LumiDayGray-500 bg-white w-[600px] overflow-hidden"
+      className="flex rounded-[0.625rem] border-solid border-[0.0625rem] border-LumiDayGray-999 bg-white w-[37.5rem] overflow-hidden"
     >
       <AccordionItem value="item-1" className="w-full border-0">
-        <AccordionTrigger className="flex items-center justify-between w-full p-5 ">
-          <div className="flex items-center justify-center gap-[10px]">
+        <AccordionTrigger className="flex items-center justify-between w-full p-[1.25rem]">
+          <div className="flex items-center justify-center gap-[0.625rem]">
             {isSwitchVisible && checked !== undefined && setChecked && (
               <Switch checked={checked} setChecked={setChecked} />
             )}
-            <p className="text-LumiDayGray-900 text-[20px] font-medium leading-normal">
-              {name}
-            </p>
+            <p className="text-LumiDayGray-1e1 text-125-500">{name}</p>
           </div>
         </AccordionTrigger>
-        <AccordionContent className=" flex flex-col p-5 border-t-2 border-LumiDayGray-100 gap-5">
+        <AccordionContent className=" flex flex-col p-[1.25rem] border-t-[0.125rem] border-LumiDayGray-f0f gap-[1.25rem]">
           {children}
         </AccordionContent>
       </AccordionItem>

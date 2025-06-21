@@ -25,25 +25,25 @@ export default function ColorSwatchSelector({
   };
 
   return (
-    <div className="self-stretch inline-flex justify-start items-center gap-0.5">
-      <div className="w-[100px] h-10 px-1 py-1.5 flex justify-start items-center gap-2.5">
-        <div className="justify-start text-gray-900 text-base font-medium font-['Pretendard']">
+    <div className="self-stretch inline-flex justify-start items-center gap-[0.125rem]">
+      <div className="w-[6.25rem] h-[2.5rem] px-[0.25rem] py-[0.4375rem] flex justify-start items-center gap-[0.625rem]">
+        <div className="justify-start text-LumiDayGray-1e1 text-1-500 font-['Pretendard']">
           배경 색상
         </div>
       </div>
-      <div className="flex justify-start items-center gap-2.5">
+      <div className="flex justify-start items-center gap-[0.625rem]">
         {colors.map((color) => (
           <div
             key={color}
-            className={`w-10 h-10 p-[3px] rounded-[5px] outline outline-1 outline-offset-[-1px] ${
+            className={`flex items-center justify-center w-[2.5rem] h-[2.5rem] border-solid rounded-[0.3125rem] cursor-pointer transition-all duration-200 ease-in-out hover:scale-105 ${
               selectedColor === color
-                ? 'outline-zinc-800'
-                : 'outline-neutral-400'
-            } flex justify-center items-center gap-2.5 cursor-pointer`}
+                ? 'border-[0.0625rem] border-LumiDayGray-1e1'
+                : 'border-[0.0375rem] border-LumiDayGray-999 hover:border-LumiDayGray-1e1'
+            }`}
             onClick={() => handleSwatchClick(color)}
           >
             <div
-              className={`w-8 h-8 ${colorMap[color]} rounded-[5px] border-[0.50px] border-neutral-400`}
+              className={`w-[2.125rem] h-[2.125rem] ${colorMap[color]} rounded-[0.3125rem] border-[0.03125rem] border-LumiDayGray-999 transition-all duration-200 ease-in-out`}
             ></div>
           </div>
         ))}

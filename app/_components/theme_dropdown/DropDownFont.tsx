@@ -6,12 +6,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { FontType, FontOption } from '@/type/components';
-
-interface DropDownFontProps {
-  selectedValue: FontType;
-  setSelectedValue: (font: FontType) => void;
-}
+import { FontType, FontOption, DropDownFontProps } from '@/type/components';
 
 export default function DropDownFont({
   selectedValue,
@@ -21,14 +16,18 @@ export default function DropDownFont({
 
   const options: FontOption[] = [
     { value: 'pretendard', label: 'pretendard', fontClass: 'font-pretendard' },
-    { value: 'ryudung', label: '온글잎', fontClass: 'font-ryudung text-base' },
+    { value: 'ryudung', label: '온글잎', fontClass: 'font-ryudung text-1-400' },
     {
       value: 'gangwon',
       label: '강원교육모두체',
-      fontClass: 'font-gangwon text-base',
+      fontClass: 'font-gangwon text-1-400',
     },
-    { value: 'nanum', label: '나눔명조', fontClass: 'font-nanum text-base' },
-    { value: 'tmoney', label: '티머니둥근바람', fontClass: 'font-tmoney' },
+    { value: 'nanum', label: '나눔명조', fontClass: 'font-nanum text-1-400' },
+    {
+      value: 'tmoney',
+      label: '티머니둥근바람',
+      fontClass: 'font-tmoney text-875-400',
+    },
   ];
 
   const selectedFontClass =
@@ -39,9 +38,9 @@ export default function DropDownFont({
   };
 
   return (
-    <div className="self-stretch inline-flex justify-start items-center gap-0.5">
-      <div className="w-[100px] h-10 px-1 py-1.5 flex justify-start items-center gap-2.5">
-        <div className="justify-start text-gray-900 text-base font-medium font-['Pretendard']">
+    <div className="self-stretch inline-flex justify-start items-center gap-[0.125rem]">
+      <div className="w-[6.25rem] h-[2.5rem] px-[0.25rem] py-[0.4375rem] flex justify-start items-center gap-[0.625rem]">
+        <div className="justify-start text-LumiDayGray-1e1 text-1-500 font-['Pretendard']">
           글꼴
         </div>
       </div>
@@ -51,9 +50,11 @@ export default function DropDownFont({
         onOpenChange={(open) => setIsOpen(open)}
       >
         <SelectTrigger
-          className={`w-[172px] h-10 p-[10px] ${
-            isOpen ? 'rounded-b-none border-b-0 border-green' : 'rounded-[5px]'
-          } border-LumiDayGray-500 bg-white transition focus:outline-none focus:ring-0 ${selectedFontClass} items-center`}
+          className={`w-[172px] h-[2.5rem] p-[10px] ${
+            isOpen
+              ? 'rounded-b-none border-b-0 border-green'
+              : 'rounded-[0.3125rem]'
+          } border-LumiDayGray-999 bg-white transition focus:outline-none focus:ring-0 ${selectedFontClass} items-center`}
         >
           <SelectValue
             className="flex items-center"
@@ -65,7 +66,7 @@ export default function DropDownFont({
         <SelectContent
           side="bottom"
           sideOffset={0}
-          className="top-[-4px] rounded-none rounded-b-[5px] border border-LumiDayGray-500"
+          className="top-[-0.25rem] rounded-none rounded-b-[0.3125rem] border border-LumiDayGray-999"
         >
           {options
             .filter((option) => option.value !== selectedValue)
@@ -73,7 +74,7 @@ export default function DropDownFont({
               <SelectItem
                 key={option.value}
                 value={option.value}
-                className={`rounded-none h-10 hover:bg-LumiDayGray-100 ${option.fontClass}`}
+                className={`rounded-none h-[2.5rem] focus:bg-LumiDayGray-999-30 ${option.fontClass}`}
               >
                 {option.label}
               </SelectItem>

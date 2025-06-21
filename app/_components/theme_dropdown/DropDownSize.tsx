@@ -6,12 +6,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { SizeType, SizeOption } from '@/type/components';
-
-interface DropDownSizeProps {
-  selectedValue: SizeType;
-  setSelectedValue: (size: SizeType) => void;
-}
+import { SizeType, SizeOption, DropDownSizeProps } from '@/type/components';
 
 export default function DropDownSize({
   selectedValue,
@@ -30,9 +25,9 @@ export default function DropDownSize({
   };
 
   return (
-    <div className="self-stretch inline-flex justify-start items-center gap-0.5">
-      <div className="w-[100px] h-10 px-1 py-1.5 flex justify-start items-center gap-2.5">
-        <div className="justify-start text-gray-900 text-base font-medium font-['Pretendard']">
+    <div className="self-stretch inline-flex justify-start items-center gap-[0.125rem]">
+      <div className="w-[6.25rem] h-[2.5rem] px-[0.25rem] py-[0.4375rem] flex justify-start items-center gap-[0.625rem]">
+        <div className="justify-start text-LumiDayGray-1e1 text-1-500 font-['Pretendard']">
           글꼴 크기
         </div>
       </div>
@@ -42,9 +37,11 @@ export default function DropDownSize({
         onOpenChange={(open) => setIsOpen(open)}
       >
         <SelectTrigger
-          className={`w-[172px] h-10 p-[10px] flex items-center ${
-            isOpen ? 'rounded-b-none border-b-0 border-green' : 'rounded-[5px]'
-          } border-LumiDayGray-500 bg-white transition focus:outline-none focus:ring-0`}
+          className={`w-[10.75rem] h-[2.5rem] p-[0.625rem] flex items-center ${
+            isOpen
+              ? 'rounded-b-none border-b-0 border-green'
+              : 'rounded-[0.3125rem]'
+          } border-LumiDayGray-999 bg-white transition focus:outline-none focus:ring-0`}
         >
           <SelectValue placeholder="크기를 선택하세요">
             {options.find((option) => option.value === selectedValue)?.label}
@@ -53,7 +50,7 @@ export default function DropDownSize({
         <SelectContent
           side="bottom"
           sideOffset={0}
-          className="top-[-4px] rounded-none rounded-b-[5px] border border-LumiDayGray-500"
+          className="top-[-0.25rem] rounded-none rounded-b-[0.3125rem] border border-LumiDayGray-999"
         >
           {options
             .filter((option) => option.value !== selectedValue)
@@ -61,7 +58,7 @@ export default function DropDownSize({
               <SelectItem
                 key={option.value}
                 value={option.value}
-                className="rounded-none h-10 hover:bg-LumiDayGray-100"
+                className="rounded-none h-[2.5rem] focus:bg-LumiDayGray-999-30 text-875-400"
               >
                 {option.label}
               </SelectItem>
