@@ -3,7 +3,7 @@
 import React from 'react';
 import CheckBoxGroup from '@/app/_components/common/CheckBox';
 import DropDownBig from '@/app/_components/common/DropDownBig';
-import Input from '@/app/_components/common/Input';
+import CommonInput from '@/app/_components/common/CommonInput';
 import { useState } from 'react';
 
 const Wedding_Venue_Dropdown = () => {
@@ -71,7 +71,7 @@ const Wedding_Venue_Dropdown = () => {
         <DropDownBig name="예식 장소" isSwitchVisible={false}>
           <div className="flex flex-col gap-[1.25rem]">
             <div>
-              <Input
+              <CommonInput
                 value={venue}
                 inputWidth={21.6875}
                 type="text"
@@ -81,7 +81,7 @@ const Wedding_Venue_Dropdown = () => {
               />
             </div>
             <div>
-              <Input
+              <CommonInput
                 value={venue}
                 inputWidth={21.6875}
                 type="text"
@@ -91,7 +91,7 @@ const Wedding_Venue_Dropdown = () => {
               />
             </div>
             <div>
-              <Input
+              <CommonInput
                 value={venue}
                 inputWidth={17.875}
                 type="text"
