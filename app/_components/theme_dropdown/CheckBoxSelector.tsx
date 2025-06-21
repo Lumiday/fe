@@ -1,37 +1,6 @@
 import React from 'react';
-import Image from 'next/image';
-import CheckboxChecked from '@/public/imgs/CheckboxChecked.svg.svg';
-import { CheckBoxState, CheckBoxProps } from '@/type/components';
-
-interface CheckBoxSelectorProps {
-  state: CheckBoxState;
-  setState: (state: CheckBoxState) => void;
-}
-
-function CheckBoxItem({ checked, onChange, label }: CheckBoxProps) {
-  return (
-    <div className="h-10 inline-flex justify-start items-center gap-2.5">
-      <div className="flex justify-start items-center gap-[5px]">
-        <div className="w-4 h-4 relative cursor-pointer" onClick={onChange}>
-          {checked ? (
-            <Image
-              src={CheckboxChecked}
-              alt="Checked"
-              width={16}
-              height={16}
-              className="object-contain"
-            />
-          ) : (
-            <div className="w-4 h-4 left-0 top-0 absolute rounded-[3px] border border-neutral-400 bg-white" />
-          )}
-        </div>
-        <div className="justify-start text-stone-900 text-sm font-normal font-['Pretendard']">
-          {label}
-        </div>
-      </div>
-    </div>
-  );
-}
+import { CheckBoxState, CheckBoxSelectorProps } from '@/type/components';
+import { CheckBoxWithLabel } from '../common/CheckBoxWithLabel';
 
 export default function CheckBoxSelector({
   state,
@@ -43,19 +12,19 @@ export default function CheckBoxSelector({
   };
 
   return (
-    <div className="inline-flex justify-start items-start gap-0.5">
-      <div className="w-[100px] h-10 px-1 py-1.5 flex justify-start items-center gap-2.5">
-        <div className="justify-start text-stone-900 text-base font-medium font-['Pretendard']">
+    <div className="inline-flex justify-start items-start gap-[0.03125rem]">
+      <div className="w-[6.25rem] h-[2.5rem] px-[0.25rem] py-[0.4375rem] flex justify-start items-center">
+        <div className="justify-start text-LumiDayGray-1e1 text-1-500 font-['Pretendard']">
           기타
         </div>
       </div>
       <div className="inline-flex flex-col justify-center items-start">
-        <CheckBoxItem
+        <CheckBoxWithLabel
           checked={state.disableZoom}
           onChange={() => handleCheckboxChange('disableZoom')}
           label="청첩장 확대 금지"
         />
-        <CheckBoxItem
+        <CheckBoxWithLabel
           checked={state.scrollEffect}
           onChange={() => handleCheckboxChange('scrollEffect')}
           label="스크롤시 등장 효과"
