@@ -35,7 +35,7 @@ export interface CheckBoxState {
   scrollEffect: boolean;
 }
 
-export interface CheckBoxProps {
+export interface CheckBoxWithLabelProps {
   checked: boolean;
   onChange: () => void;
   label: string;
@@ -96,4 +96,27 @@ export interface DeceasedDisplaySelectorProps {
   selectedDisplay: DeceasedDisplayType;
   setSelectedDisplay: (display: DeceasedDisplayType) => void;
   displays?: DeceasedDisplayOption[];
+}
+
+export interface DropDownSizeProps {
+  selectedValue: SizeType;
+  setSelectedValue: (size: SizeType) => void;
+}
+export interface DropDownFontProps {
+  selectedValue: FontType;
+  setSelectedValue: (font: FontType) => void;
+}
+export interface CheckBoxSelectorProps {
+  state: CheckBoxState;
+  setState: (state: CheckBoxState) => void;
+}
+
+export type DropDownBIgSwitchProps = {
+  checked: boolean;
+  setChecked: (checked: boolean) => void;
+};
+export interface CheckBoxGrayOutProps {
+  checked: boolean;
+  onChange: () => void;
+  label: string;
 }
