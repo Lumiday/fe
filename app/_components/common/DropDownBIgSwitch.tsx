@@ -1,11 +1,7 @@
+import { DropDownBIgSwitchProps } from '@/type/components';
 import React from 'react';
 
-type SwitchProps = {
-  checked: boolean;
-  setChecked: (checked: boolean) => void;
-};
-
-const Switch = ({ checked, setChecked }: SwitchProps) => {
+const Switch = ({ checked, setChecked }: DropDownBIgSwitchProps) => {
   const handleClick = (e: React.MouseEvent<HTMLLabelElement>) => {
     e.stopPropagation();
   };
@@ -13,7 +9,7 @@ const Switch = ({ checked, setChecked }: SwitchProps) => {
   return (
     <label
       onClick={handleClick}
-      className="relative inline-block w-[51px] h-[31px] cursor-pointer select-none"
+      className="relative inline-block w-[3.1875rem] h-[1.9375rem] cursor-pointer select-none"
     >
       <input
         type="checkbox"
@@ -27,12 +23,12 @@ const Switch = ({ checked, setChecked }: SwitchProps) => {
         }`}
       />
       <div
-        className={`absolute top-[2px] left-[2px] w-[27px] h-[27px] bg-white rounded-full shadow-md transform transition-transform duration-300 ${
-          checked ? 'translate-x-[20px]' : ''
+        className={`absolute top-[0.125rem] left-[0.125rem] w-[1.6875rem] h-[1.6875rem] bg-white rounded-full shadow-md transform transition-transform duration-300 ${
+          checked ? 'translate-x-[1.25rem]' : ''
         }`}
       />
       <span
-        className={`absolute -top-6 right-0 text-sm font-bold transition-colors duration-300 ${
+        className={`absolute top-[-1.5rem] right-0 transition-colors duration-300 ${
           checked ? 'text-LumiDayGreen' : 'text-gray-400'
         }`}
       ></span>

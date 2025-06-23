@@ -11,6 +11,7 @@ const config: Config = {
     fontSize: {
       '125-500': ['1.25rem', { fontWeight: '500' }],
       '1-500': ['1rem', { fontWeight: '500' }],
+      '1-400': ['1rem', { fontWeight: '400' }],
       '875-400': ['0.875rem', { fontWeight: '400' }],
     },
     extend: {
@@ -66,9 +67,17 @@ const config: Config = {
           '1e1': '#1E1E1E',
           '333': '#333333',
           '999': '#999999',
+          '999-30': '#9999994D',
+          d1d: '#d1d5db',
           f0f: '#F0F0F0',
         },
+        LumiDayPink: {
+          '100': '#ECDFE2',
+          '500': '#FAD6D5',
+        },
         LumiDayGreen: '#03C75A',
+        LumiDayBeige: '#F2ECE6',
+        LumiDaySky: '#E0F1FF',
       },
       borderRadius: {
         lg: 'var(--radius)',
