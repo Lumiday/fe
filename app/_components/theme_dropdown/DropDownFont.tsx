@@ -50,7 +50,7 @@ export default function DropDownFont({
         onOpenChange={(open) => setIsOpen(open)}
       >
         <SelectTrigger
-          className={`w-[172px] h-[2.5rem] p-[10px] ${
+          className={`w-[10.75rem] h-[2.5rem] p-[0.625rem] ${
             isOpen
               ? 'rounded-b-none border-b-0 border-green'
               : 'rounded-[0.3125rem]'
