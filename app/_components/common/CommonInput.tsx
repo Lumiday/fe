@@ -14,7 +14,7 @@ const CommonInput = (props: InputProps) => {
       <div className="flex items-center h-[2.5rem]">
         <label
           htmlFor={props.id}
-          className="inline-block w-[6.25rem] py-[0.4375rem] px-[0.25rem]  text-1-500 text-LumiDayGray-1e1 mr-[0.25rem]"
+          className="inline-block w-[6.25rem] py-[0.4375rem] px-[0.25rem]  text-1-500 text-LumiDayGray-1e1 mr-[0.12rem]"
         >
           {props.label}
         </label>
