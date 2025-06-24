@@ -120,3 +120,17 @@ export interface CheckBoxGrayOutProps {
   onChange: () => void;
   label: string;
 }
+
+export interface MusicFileProps {
+  id: string;
+  name: string;
+  src: string | null;
+  file?: File;
+}
+
+export interface AudioPlayerProps {
+  src: string | null;
+  isPlaying: boolean;
+  onPlayPause: () => void;
+  disabled?: boolean;
+}
