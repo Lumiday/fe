@@ -2,9 +2,16 @@
 
 import { useState } from 'react';
 import PersonInfoInput from './PersonInfoInput';
-import { PersonInfo, DeceasedDisplayType } from '@/type/components';
-import DeceasedDisplaySelector from './DeceasedDisplaySelector';
+import { PersonInfo } from '@/type/components';
 import DropDownBig from '../common/DropDownBig';
+import ViewModeSelector from '@/app/_components/common/ViewModeSelector';
+
+const patterns = [
+  { value: '표시 안 함', label: '표시 안 함' },
+  { value: '색상변경', label: '색상변경' },
+  { value: '故 표시', label: '故 표시' },
+  { value: '국화 표시', label: '국화 표시' },
+];
 
 export default function BasicInfoDropdown() {
   const [groom, setGroom] = useState<PersonInfo>({
@@ -41,10 +48,9 @@ export default function BasicInfoDropdown() {
     phone: '',
     isDeceased: false,
   });
-  const [selectedDisplay, setSelectedDisplay] =
-    useState<DeceasedDisplayType>('none');
+  const [selectedDisplay, setSelectedDisplay] = useState<string>('표시 안 함');
 
-  const handleDisplayChange = (newDisplay: DeceasedDisplayType) => {
+  const handleDisplayChange = (newDisplay: string) => {
     setSelectedDisplay(newDisplay);
   };
 
@@ -89,9 +95,11 @@ export default function BasicInfoDropdown() {
           />
         </div>
         <div className="w-[37.4375rem] h-[0.0625rem] bg-LumiDayGray-f0f" />
-        <DeceasedDisplaySelector
-          selectedDisplay={selectedDisplay}
-          setSelectedDisplay={handleDisplayChange}
+        <ViewModeSelector
+          name="고인 표시"
+          patterns={patterns}
+          selectedPattern={selectedDisplay}
+          setSelectedPattern={handleDisplayChange}
         />
         <div className="w-[37.4375rem] h-[0.0625rem] bg-LumiDayGray-f0f" />
       </DropDownBig>

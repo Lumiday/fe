@@ -22,16 +22,8 @@ export interface SizeOption {
   label: string;
 }
 
-export type PatternType = '없음' | '종이' | '체크' | '작은 꽃'; //준석 테마
-
-export interface SelectTypeOption {
+export interface ViewModeSelectorType {
   value: string;
-  label: string;
-  className?: string;
-}
-
-export interface PatternOption {
-  value: PatternType;
   label: string;
   className?: string;
 }
@@ -51,17 +43,6 @@ export interface PersonInfo {
   firstName: string;
   phone: string;
   isDeceased?: boolean;
-}
-
-export type DeceasedDisplayType =
-  | 'none'
-  | 'color'
-  | 'deceased'
-  | 'chrysanthemum';
-
-export interface DeceasedDisplayOption {
-  value: DeceasedDisplayType;
-  label: string;
 }
 
 export interface PersonInfoInputProps {
@@ -96,12 +77,6 @@ export interface InputProps {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   isButton?: boolean;
-}
-
-export interface DeceasedDisplaySelectorProps {
-  selectedDisplay: DeceasedDisplayType;
-  setSelectedDisplay: (display: DeceasedDisplayType) => void;
-  displays?: DeceasedDisplayOption[];
 }
 
 export interface DropDownSizeProps {

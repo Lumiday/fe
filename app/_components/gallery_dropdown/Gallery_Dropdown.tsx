@@ -2,7 +2,7 @@
 
 import CommonInput from '@/app/_components/common/CommonInput';
 import DropDownBig from '@/app/_components/common/DropDownBig';
-import Select_type from '@/app/_components/gallery_dropdown/Select_type';
+import ViewModeSelector from '@/app/_components/common/ViewModeSelector';
 import { useState } from 'react';
 
 const patterns = [
@@ -12,7 +12,7 @@ const patterns = [
 ];
 
 const Gallery_Dropdown = () => {
-  const [selectedPattern, setSelectedPattern] = useState('스와이프');
+  const [selectedPattern, setSelectedPattern] = useState<string>('스와이프');
 
   const handlePatternChange = (newPattern: string) => {
     setSelectedPattern(newPattern);
@@ -22,7 +22,7 @@ const Gallery_Dropdown = () => {
     <DropDownBig name="갤러리" isSwitchVisible={false}>
       {/* <CommonInput type="text" label="제목" id="title" inputWidth={21.6875} /> */}
       {/* 갤러리 타입 */}
-      <Select_type
+      <ViewModeSelector
         name="갤러리 타입"
         patterns={patterns}
         selectedPattern={selectedPattern}
