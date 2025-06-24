@@ -20,7 +20,13 @@ export interface SizeOption {
   label: string;
 }
 
-export type PatternType = '없음' | '종이' | '체크' | '작은 꽃';
+export type PatternType = '없음' | '종이' | '체크' | '작은 꽃'; //준석 테마
+
+export interface SelectTypeOption {
+  value: string;
+  label: string;
+  className?: string;
+}
 
 export interface PatternOption {
   value: PatternType;
