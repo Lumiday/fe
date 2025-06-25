@@ -22,7 +22,7 @@ const Notice_Dropdown = () => {
     setFormState((prev) => ({ ...prev, [id]: value }));
   };
   return (
-    <DropDownBig name="모시는 글" isSwitchVisible={false}>
+    <DropDownBig name="모시는 글" isSwitchVisible={false} isPadding={false}>
       <CommonInput
         type="string"
         label="제목"

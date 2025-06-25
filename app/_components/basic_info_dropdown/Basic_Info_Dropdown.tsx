@@ -56,8 +56,8 @@ export default function BasicInfoDropdown() {
 
   return (
     <div>
-      <DropDownBig name="기본 정보" isSwitchVisible={false}>
-        <div className="flex flex-col justify-start items-start gap-[1.25rem]">
+      <DropDownBig name="기본 정보" isSwitchVisible={false} isPadding={false}>
+        <div className="flex flex-col justify-start items-start gap-[1.25rem] p-[1.25rem]">
           <PersonInfoInput
             label="신랑"
             person={groom}
@@ -76,7 +76,7 @@ export default function BasicInfoDropdown() {
           />
         </div>
         <div className="w-[37.4375rem] h-[0.0625rem] bg-LumiDayGray-f0f" />
-        <div className="flex flex-col justify-start items-start gap-[1.25rem]">
+        <div className="flex flex-col justify-start items-start gap-[1.25rem] p-[1.25rem]">
           <PersonInfoInput
             label="신부"
             person={bride}
@@ -95,13 +95,14 @@ export default function BasicInfoDropdown() {
           />
         </div>
         <div className="w-[37.4375rem] h-[0.0625rem] bg-LumiDayGray-f0f" />
-        <ViewModeSelector
-          name="고인 표시"
-          patterns={patterns}
-          selectedPattern={selectedDisplay}
-          setSelectedPattern={handleDisplayChange}
-        />
-        <div className="w-[37.4375rem] h-[0.0625rem] bg-LumiDayGray-f0f" />
+        <div className="p-[1.25rem]">
+          <ViewModeSelector
+            name="고인 표시"
+            patterns={patterns}
+            selectedPattern={selectedDisplay}
+            setSelectedPattern={handleDisplayChange}
+          />
+        </div>
       </DropDownBig>
     </div>
   );
