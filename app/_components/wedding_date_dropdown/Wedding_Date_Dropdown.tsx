@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import CheckBoxGroup from '@/app/_components/common/CheckBox';
+import CheckBoxGroup from '@/app/_components/common/CheckBoxGroup';
 import DropDownBig from '@/app/_components/common/DropDownBig';
 import DropDownTime from '@/app/_components/wedding_date_dropdown/DropDownTime';
 import DropDownDate from '@/app/_components/wedding_date_dropdown/DropDownDate';
@@ -42,7 +42,7 @@ const Wedding_Date_Dropdown = () => {
   };
 
   return (
-    <DropDownBig name="예식 일시" isSwitchVisible={false}>
+    <DropDownBig name="예식 일시" isSwitchVisible={false} isPadding={false}>
       <DropDownDate />
       <DropDownTime
         selectedValue={selectedValue} //현재선택된 시간
