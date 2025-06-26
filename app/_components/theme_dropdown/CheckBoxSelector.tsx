@@ -1,6 +1,11 @@
 import React from 'react';
-import { CheckBoxState, CheckBoxSelectorProps } from '@/type/components';
+import { CheckBoxState } from '@/type/components';
 import { CheckBoxWithLabel } from '../common/CheckBoxWithLabel';
+
+interface CheckBoxSelectorProps {
+  state: CheckBoxState;
+  setState: (state: CheckBoxState) => void;
+}
 
 export default function CheckBoxSelector({
   state,

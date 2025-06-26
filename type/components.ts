@@ -29,8 +29,7 @@ export interface ViewModeSelectorType {
 }
 
 export interface CheckBoxState {
-  disableZoom: boolean;
-  scrollEffect: boolean;
+  [key: string]: boolean;
 }
 
 export interface CheckBoxWithLabelProps {
@@ -45,13 +44,6 @@ export interface PersonInfo {
   isDeceased?: boolean;
 }
 
-export interface PersonInfoInputProps {
-  label: string;
-  person: PersonInfo;
-  setPerson: React.Dispatch<React.SetStateAction<PersonInfo>>;
-  showDeceasedCheckbox?: boolean;
-}
-
 export interface DropDownBigProps {
   name: string;
   children: React.ReactNode;
@@ -63,9 +55,23 @@ export interface DropDownBigProps {
 export interface CommonInputProps {
   type: string;
   inputWidth: number;
+  inputHeight?: number;
   id: string;
   value: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
+  placeholder: string;
+}
+
+export interface CommonTextAreaProps {
+  inputWidth: number;
+  inputHeight?: number;
+  id: string;
+  value: string;
+  onChange: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
   placeholder: string;
 }
 
@@ -79,28 +85,10 @@ export interface InputProps {
   isButton?: boolean;
 }
 
-export interface DropDownSizeProps {
-  selectedValue: SizeType;
-  setSelectedValue: (size: SizeType) => void;
-}
-export interface DropDownFontProps {
-  selectedValue: FontType;
-  setSelectedValue: (font: FontType) => void;
-}
-export interface CheckBoxSelectorProps {
-  state: CheckBoxState;
-  setState: (state: CheckBoxState) => void;
-}
-
 export type DropDownBIgSwitchProps = {
   checked: boolean;
   setChecked: (checked: boolean) => void;
 };
-export interface CheckBoxGrayOutProps {
-  checked: boolean;
-  onChange: () => void;
-  label: string;
-}
 
 export interface MusicFileProps {
   id: string;
@@ -114,4 +102,8 @@ export interface AudioPlayerProps {
   isPlaying: boolean;
   onPlayPause: () => void;
   disabled?: boolean;
+}
+
+export interface RSVPContentsProps {
+  [key: string]: string;
 }

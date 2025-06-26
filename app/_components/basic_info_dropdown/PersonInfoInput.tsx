@@ -1,6 +1,13 @@
-import { PersonInfo, PersonInfoInputProps } from '@/type/components';
+import { PersonInfo } from '@/type/components';
 import CheckBoxGrayOut from './CheckBoxGrayOut';
 import CommonInputSize from '../common/CommonInputSize';
+
+interface PersonInfoInputProps {
+  label: string;
+  person: PersonInfo;
+  setPerson: React.Dispatch<React.SetStateAction<PersonInfo>>;
+  showDeceasedCheckbox?: boolean;
+}
 
 export default function PersonInfoInput({
   label,

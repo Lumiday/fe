@@ -1,6 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
-import { AudioPlayerProps } from '@/type/components';
+
+interface AudioPlayerProps {
+  src: string | null;
+  isPlaying: boolean;
+  onPlayPause: () => void;
+  disabled?: boolean;
+}
 
 export const AudioPlayer = ({
   src,

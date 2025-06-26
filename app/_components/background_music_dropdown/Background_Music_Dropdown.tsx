@@ -6,7 +6,7 @@ import DropDownBig from '../common/DropDownBig';
 import { CheckBoxWithLabel } from '../common/CheckBoxWithLabel';
 import Image from 'next/image';
 
-export default function BackgroundMusicSettings() {
+export default function BackgroundMusicDropdown() {
   const [isBackgroundMusicEnabled, setIsBackgroundMusicEnabled] =
     useState(true);
   const [selectedMusic, setSelectedMusic] = useState('');

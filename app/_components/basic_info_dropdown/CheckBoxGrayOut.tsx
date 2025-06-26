@@ -1,6 +1,11 @@
 import CheckboxChecked from '@/public/imgs/CheckboxChecked.svg.svg';
-import { CheckBoxGrayOutProps } from '@/type/components';
 import Image from 'next/image';
+
+interface CheckBoxGrayOutProps {
+  checked: boolean;
+  onChange: () => void;
+  label: string;
+}
 
 export default function CheckBoxGrayOut({
   checked,
