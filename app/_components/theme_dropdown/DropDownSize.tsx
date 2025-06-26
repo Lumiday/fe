@@ -6,7 +6,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { SizeType, SizeOption, DropDownSizeProps } from '@/type/components';
+import { SizeType, SizeOption } from '@/type/components';
+
+interface DropDownSizeProps {
+  selectedValue: SizeType;
+  setSelectedValue: (size: SizeType) => void;
+}
 
 export default function DropDownSize({
   selectedValue,

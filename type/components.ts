@@ -44,13 +44,6 @@ export interface PersonInfo {
   isDeceased?: boolean;
 }
 
-export interface PersonInfoInputProps {
-  label: string;
-  person: PersonInfo;
-  setPerson: React.Dispatch<React.SetStateAction<PersonInfo>>;
-  showDeceasedCheckbox?: boolean;
-}
-
 export interface DropDownBigProps {
   name: string;
   children: React.ReactNode;
@@ -92,28 +85,10 @@ export interface InputProps {
   isButton?: boolean;
 }
 
-export interface DropDownSizeProps {
-  selectedValue: SizeType;
-  setSelectedValue: (size: SizeType) => void;
-}
-export interface DropDownFontProps {
-  selectedValue: FontType;
-  setSelectedValue: (font: FontType) => void;
-}
-export interface CheckBoxSelectorProps {
-  state: CheckBoxState;
-  setState: (state: CheckBoxState) => void;
-}
-
 export type DropDownBIgSwitchProps = {
   checked: boolean;
   setChecked: (checked: boolean) => void;
 };
-export interface CheckBoxGrayOutProps {
-  checked: boolean;
-  onChange: () => void;
-  label: string;
-}
 
 export interface MusicFileProps {
   id: string;

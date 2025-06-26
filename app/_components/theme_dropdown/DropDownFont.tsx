@@ -6,7 +6,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { FontType, FontOption, DropDownFontProps } from '@/type/components';
+import { FontType, FontOption } from '@/type/components';
+
+interface DropDownFontProps {
+  selectedValue: FontType;
+  setSelectedValue: (font: FontType) => void;
+}
 
 export default function DropDownFont({
   selectedValue,
