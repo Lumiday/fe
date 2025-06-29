@@ -24,20 +24,17 @@ export default function ViewModeSelector({
         </div>
       </div>
       <div className="flex gap-[0.62rem]">
-        {patterns?.map((pattern) => {
-          console.log(pattern);
-          return (
-            <div
-              key={pattern.value}
-              className={`h-[2.5rem] px-[0.625rem] py-[0.375rem] rounded-[0.3125rem] flex items-center 
+        {patterns?.map((pattern) => (
+          <div
+            key={pattern.value}
+            className={`h-[2.5rem] px-[0.625rem] py-[0.375rem] rounded-[0.3125rem] flex items-center 
                 ${selectedPattern === pattern.value ? 'bg-white text-LumiDayGray-1e1 border border-LumiDayGray-1e1' : 'bg-LumiDayGray-f0f text-LumiDayGray-999 border border-LumiDayGray-f0f'} 
                 hover:text-LumiDayGray-1e1 hover:border hover:border-[#1e1e1e] ${pattern.className || ''}`}
-              onClick={() => setSelectedPattern(pattern.value)}
-            >
-              <div>{pattern.label}</div>
-            </div>
-          );
-        })}
+            onClick={() => setSelectedPattern(pattern.value)}
+          >
+            <div>{pattern.label}</div>
+          </div>
+        ))}
       </div>
     </div>
   );

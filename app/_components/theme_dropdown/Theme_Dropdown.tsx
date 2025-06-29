@@ -53,7 +53,7 @@ export default function ThemeDropdown() {
 
   return (
     <div>
-      <DropDownBig name="테마" isSwitchVisible={false}>
+      <DropDownBig name="테마" isSwitchVisible={false} isPadding={false}>
         <DropDownFont
           selectedValue={font}
           setSelectedValue={handleFontChange}

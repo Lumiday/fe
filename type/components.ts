@@ -50,6 +50,7 @@ export interface DropDownBigProps {
   checked?: boolean;
   setChecked?: (checked: boolean) => void;
   isSwitchVisible: boolean;
+  isPadding: boolean;
 }
 
 export interface CommonInputProps {

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import CheckBoxGroup from '@/app/_components/common/CheckBox';
+import CheckBoxGroup from '@/app/_components/common/CheckBoxGroup';
 import DropDownBig from '@/app/_components/common/DropDownBig';
 import CommonInput from '@/app/_components/common/CommonInput';
 import { useState } from 'react';
@@ -68,7 +68,7 @@ const Wedding_Venue_Dropdown = () => {
   return (
     <>
       <div>
-        <DropDownBig name="예식 장소" isSwitchVisible={false}>
+        <DropDownBig name="예식 장소" isSwitchVisible={false} isPadding={false}>
           <div className="flex flex-col gap-[1.25rem]">
             <div>
               <CommonInput

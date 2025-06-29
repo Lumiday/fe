@@ -13,6 +13,7 @@ export default function DropDownBig({
   checked,
   setChecked,
   isSwitchVisible,
+  isPadding,
 }: DropDownBigProps) {
   return (
     <Accordion
@@ -29,7 +30,9 @@ export default function DropDownBig({
             <p className="text-LumiDayGray-1e1 text-125-500">{name}</p>
           </div>
         </AccordionTrigger>
-        <AccordionContent className=" flex flex-col p-[1.25rem] border-t-[0.125rem] border-LumiDayGray-f0f gap-[1.25rem]">
+        <AccordionContent
+          className={`flex flex-col ${isPadding && 'p-[1.25rem] gap-[1.25rem]'} border-t-[0.125rem] border-LumiDayGray-f0f`}
+        >
           {children}
         </AccordionContent>
       </AccordionItem>
