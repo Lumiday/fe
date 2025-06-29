@@ -151,7 +151,7 @@ export default function BackgroundMusicDropdown() {
       isPadding={false}
     >
       {/* 기본 음원 섹션 */}
-      <div className=" p-[1.25rem]">
+      <div className="flex flex-col p-[1.25rem] gap-[1.25rem]">
         <div className="flex items-start gap-[0.125rem]">
           <div className="w-[6.25rem] h-[2.5rem] px-[0.25rem] py-[0.4375rem] flex items-center">
             <div className="text-1-500 text-LumiDayGray-1e1">기본 음원</div>
@@ -183,7 +183,7 @@ export default function BackgroundMusicDropdown() {
           <div className="w-[6.25rem] h-[2.5rem] px-[0.25rem] py-[0.4375rem] flex items-center">
             <div className="text-1-500 text-LumiDayGray-1e1">나의 음원</div>
           </div>
-          <div className="flex flex-col gap-[0.5rem]">
+          <div className="flex flex-col">
             {/* 파일 업로드 버튼 */}
             <div
               className="w-[6.0625rem] h-[2.5rem] p-[0.625rem] bg-LumiDayGray-f0f hover:bg-LumiDayGray-999-30 rounded-[0.3125rem] flex items-center gap-[0.3125rem] cursor-pointer transition-colors"
@@ -199,7 +199,7 @@ export default function BackgroundMusicDropdown() {
               {uploadedFiles.map((file) => (
                 <div
                   key={file.id}
-                  className="h-[2.5rem] flex items-center gap-[0.3125rem]"
+                  className="h-[2.5rem] flex items-center gap-[0.3125rem] pt-[0.5rem]"
                 >
                   <CheckBoxWithLabel
                     checked={selectedMusic === file.id}

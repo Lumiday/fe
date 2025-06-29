@@ -42,7 +42,7 @@ const Wedding_Date_Dropdown = () => {
   };
 
   return (
-    <DropDownBig name="예식 일시" isSwitchVisible={false} isPadding={false}>
+    <DropDownBig name="예식 일시" isSwitchVisible={false}>
       <DropDownDate />
       <DropDownTime
         selectedValue={selectedValue} //현재선택된 시간

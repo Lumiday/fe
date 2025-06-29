@@ -13,7 +13,7 @@ export default function DropDownBig({
   checked,
   setChecked,
   isSwitchVisible,
-  isPadding,
+  isPadding = true,
 }: DropDownBigProps) {
   return (
     <Accordion
