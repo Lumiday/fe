@@ -4,13 +4,11 @@ import React, { useState, useRef } from 'react';
 
 interface ImageUploaderProps {
   onUpload?: (images: File[]) => void;
-  maxImages?: number; //이미지의 최댓값을 넘기는건가?
+  maxImages?: number;
 }
 
-//드래그 가능
-//코드 한번번 확인
-
-const ImageUploader = ({ onUpload, maxImages = 3 }: ImageUploaderProps) => {
+//현재 이미지를 받는 갯수를 maxImages 고정된 인자로 조절 할 수 있다
+const ImageUploader = ({ onUpload, maxImages = 30 }: ImageUploaderProps) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [images, setImages] = useState<File[]>([]); //이미지
@@ -18,17 +16,8 @@ const ImageUploader = ({ onUpload, maxImages = 3 }: ImageUploaderProps) => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('event', event);
-    // lastModified: 1750949119737
-    // lastModifiedDate: Thu Jun 26 2025 23:45:19 GMT+0900 (한국 표준시) {}
-    // name :"스크린샷 2025-06-26 오후 11.45.14.png"
-    // size: 383091
-    // type: "image/png"
-    // webkitRelativePath: ""
     const files = Array.from(event.target.files || []);
-    //유사 배열 객체나 이터러블 객체(예: 문자열, Set, Map 등)를 새로운 배열로 변환하는 자바스크립트 메서드
-    console.log('files', files);
-    if (!files.length) return; //file.length가 0일 경우 true로 바뀌면서 반환된다.
+    if (!files.length) return;
 
     const totalImages = images.length + files.length;
     if (totalImages > maxImages) {
@@ -37,20 +26,17 @@ const ImageUploader = ({ onUpload, maxImages = 3 }: ImageUploaderProps) => {
     }
 
     const validFiles = files.filter((file) => {
-      //filter는 true인 파일만 validFiles 배열에 남깁
-      //조건에 맞는 요소만 걸러내는 함수
-      const isValidType = ['image/jpeg', 'image/png'].includes(file.type); //true, false 반환
-      const isValidSize = file.size <= 5 * 1024 * 1024; // 5MB 바이트 단위로 체크  //true, false 반환
+      const isValidType = ['image/jpeg', 'image/png'].includes(file.type);
+      const isValidSize = file.size <= 5 * 1024 * 1024;
       if (!isValidType)
         setErrorMessage(`${file.name}: 지원하지 않는 파일 형식입니다.`);
       if (!isValidSize) setErrorMessage(`${file.name}: 5MB를 초과했습니다.`);
-      return isValidType && isValidSize; //해당 파일의 크기와 확장자를 확인 //true, false 반환
+      return isValidType && isValidSize;
     });
 
     if (validFiles.length) {
       setImages((prev) => [...prev, ...validFiles]);
-      const newPreviews = validFiles.map((file) => URL.createObjectURL(file)); //URL.createObjectURL(file) 함수를 호출해서 브라우저가 임시로 접근할 수 있는 '파일 URL'을 생성
-      // URL.createObjectURL()을 쓰면, 브라우저가 그 파일을 가리키는 임시 주소(URL)를 만들어줍니다.
+      const newPreviews = validFiles.map((file) => URL.createObjectURL(file));
       setPreviews((prev) => [...prev, ...newPreviews]);
       setErrorMessage(null);
       if (onUpload) onUpload([...images, ...validFiles]);
@@ -71,11 +57,10 @@ const ImageUploader = ({ onUpload, maxImages = 3 }: ImageUploaderProps) => {
     setErrorMessage(null);
   };
 
-  // py (top,bottom) px (left, right)
   return (
     <>
       <div className="flex">
-        <label className="w-[6.25rem] py-[0.4375rem] px-[0.25rem] text-1-500 text-LumiDayGray-1e1 mr-[0.12rem] bg-[pink]">
+        <label className="w-[6.25rem] py-[0.4375rem] px-[0.25rem] text-1-500 text-LumiDayGray-1e1 mr-[0.12rem]">
           사진 추가
         </label>
         <button
@@ -87,7 +72,6 @@ const ImageUploader = ({ onUpload, maxImages = 3 }: ImageUploaderProps) => {
           }`}
           disabled={images.length >= maxImages}
         >
-          {/* {images.length >= maxImages ? '업로드 완료' : '이미지 선택'} */}+
           사진 업로드
         </button>
         <input
@@ -100,21 +84,22 @@ const ImageUploader = ({ onUpload, maxImages = 3 }: ImageUploaderProps) => {
           disabled={images.length >= maxImages}
         />
       </div>
-      {errorMessage && <p className="text-red-500 mb-2">{errorMessage}</p>}
-      <div className="w-[28.5625rem] bg-[skyblue] ml-[6.25rem] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+      <div className="w-[28.5625rem]  ml-[6.25rem] grid grid-cols-3 gap-y-6">
         {previews.map((preview, index) => (
-          <div key={index} className="relative w-[8.125rem]">
+          <div key={index} className="relative w-[8.125rem] ">
             <img
               src={preview}
               alt={`Preview ${index}`}
-              className="w-full h-32 object-cover rounded"
+              className="w-full h-[8.125rem] object-cover rounded-[0.3125rem]"
             />
             <button
               onClick={() => handleDelete(index)}
-              className="absolute top-2 right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center"
+              className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-[#999] text-[#F0F0F0] w-[1.5rem] h-[1.5rem] flex justify-center items-center rounded-[0.1875rem] "
               aria-label="Delete image"
             >
-              ×
+              <span className="flex items-center justify-center w-[0.82406rem] h-[0.82406rem]">
+                ×
+              </span>
             </button>
           </div>
         ))}
