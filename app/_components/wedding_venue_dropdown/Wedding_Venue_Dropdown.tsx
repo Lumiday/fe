@@ -68,7 +68,7 @@ const Wedding_Venue_Dropdown = () => {
   return (
     <>
       <div>
-        <DropDownBig name="예식 장소" isSwitchVisible={false} isPadding={false}>
+        <DropDownBig name="예식 장소" isSwitchVisible={false}>
           <div className="flex flex-col gap-[1.25rem]">
             <div>
               <CommonInput

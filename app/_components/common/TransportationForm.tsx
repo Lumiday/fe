@@ -47,7 +47,7 @@ export default function TransportationForm() {
           <label className="w-[6.25rem] h-[2.5rem] flex items-center text-#1E1E1E font-medium ">
             교통수단
           </label>
-          <div className="flex flex-col gap-[0.62rem] w-full">
+          <div className="flex flex-col gap-[0.62rem] w-full ml-[0.125rem]">
             <input
               placeholder="교통수단(지하철,버스,자가용 등)"
               className="border border-[#999] rounded-[0.3125rem] p-[0.625rem] w-full  placeholder:text-[#999] font-[0.875rem]"
@@ -66,7 +66,7 @@ export default function TransportationForm() {
             />
           </div>
           <button
-            className="bg-[#F0F0F0] w-[1.25rem] h-[1.25rem] rounded-[0.125rem] flex justify-center items-center ml-[0.56rem] mt-[0.44rem] group-hover:opacity-100 transition-opacity"
+            className="bg-[#F0F0F0] w-[1.25rem] h-[1.25rem] rounded-[0.125rem] flex justify-center items-center ml-[0.56rem] mt-[0.5rem] hover:opacity-100 transition-opacity"
             onClick={() => handleRemove(section.id)}
           >
             <Image
