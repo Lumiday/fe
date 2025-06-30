@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import CheckBoxGroup from '@/app/_components/common/CheckBoxGroup';
-// import CommonInput from '@/app/_components/common/CommonInput';
+import CommonInput from '@/app/_components/common/CommonInput';
 import DropDownBig from '@/app/_components/common/DropDownBig';
 import ViewModeSelector from '@/app/_components/common/ViewModeSelector';
 import Image from 'next/image';
@@ -11,15 +11,21 @@ import ImageUploader from '@/app/_components/gallery_dropdown/ImageUploader';
 const patterns = [
   { value: '스와이프', label: '스와이프' },
   { value: '그리드', label: '그리드' },
-  { value: '작은 꽃', label: '작은 꽃' },
+  { value: '바둑판', label: '바둑판' },
 ];
 
 const GalleryDropdown = () => {
   const [uploadedImages, setUploadedImages] = useState<File[]>([]);
-  const [selectedPattern, setSelectedPattern] = useState<string>('스와이프');
+  // const [selectedPattern, setSelectedPattern] = useState<string>('스와이프');
   const [displayOptionsStates, setDisplayOptionsStates] = useState<
     Record<string, boolean>
   >({});
+  const [formData, setFormData] = useState({
+    title: '',
+    pattern: '스와이프',
+    popupViewer: false,
+    images: [] as File[], //추론 불가로 인한 타입 단언 처리
+  });
 
   const handleDisplayOptionsStates = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -31,13 +37,12 @@ const GalleryDropdown = () => {
     }));
   };
 
-  const handlePatternChange = (newPattern: string) => {
-    setSelectedPattern(newPattern);
-  };
+  // const handlePatternChange = (newPattern: string) => {
+  //   setSelectedPattern(newPattern);
+  // };
 
   const handleImageUpload = (images: File[]) => {
     setUploadedImages(images);
-    console.log('Uploaded images:', images);
     // API 호출 또는 상태 업데이트 로직 추가 uploadedImages
   };
 
@@ -53,20 +58,29 @@ const GalleryDropdown = () => {
   return (
     <DropDownBig name="갤러리" isSwitchVisible={false} isPadding={false}>
       <div className="p-[1.25rem] flex flex-col gap-[1.25rem]">
-        {/* <CommonInput type="text" label="제목" id="title" inputWidth={21.6875} /> */}
+        <CommonInput
+          type="text"
+          label="제목"
+          id="title"
+          inputWidth={21.6875}
+          value={formData.title}
+          onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+        />
         {/* 갤러리 타입 */}
         <ViewModeSelector
           name="갤러리 타입"
           patterns={patterns}
-          selectedPattern={selectedPattern}
-          setSelectedPattern={handlePatternChange}
+          // selectedPattern={selectedPattern}
+          // setSelectedPattern={handlePatternChange}
+          selectedPattern={formData.pattern}
+          onChange={(value) => setFormData({ ...formData, pattern: value })}
         />
         <CheckBoxGroup
           title="팝업 뷰어"
           items={displayOptionsItems}
           onChange={handleDisplayOptionsStates}
         />
-        <ImageUploader onUpload={handleImageUpload} />
+        <ImageUploader onUpload={handleImageUpload} maxImages={30} />
       </div>
       <div className="border border-LumiDayGray-F0F"></div>
       <div className="p-[1.25rem] flex flex-col gap-[0.62rem]">
