@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import Header from '@/app/_components/common/Header';
+import Header from '@/app/components/custom/common/Header';
 
 export const metadata: Metadata = {
   title: 'Lumiday',

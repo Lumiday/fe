@@ -1,12 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import CheckBoxGroup from '@/app/_components/common/CheckBoxGroup';
-import CommonInput from '@/app/_components/common/CommonInput';
-import DropDownBig from '@/app/_components/common/DropDownBig';
-import ViewModeSelector from '@/app/_components/common/ViewModeSelector';
+import CheckBoxGroup from '@/app/components/custom/common/CheckBoxGroup';
+import CommonInput from '@/app/components/custom/common/CommonInput';
+import DropDownBig from '@/app/components/custom/common/DropDownBig';
+import ViewModeSelector from '@/app/components/custom/common/ViewModeSelector';
 import Image from 'next/image';
-import ImageUploader from '@/app/_components/gallery_dropdown/ImageUploader';
+import ImageUploader from '@/app/components/custom/gallery_dropdown/ImageUploader';
 
 const patterns = [
   { value: '스와이프', label: '스와이프' },

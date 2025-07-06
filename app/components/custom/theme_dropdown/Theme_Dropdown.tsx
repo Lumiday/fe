@@ -5,7 +5,7 @@ import DropDownBig from '../common/DropDownBig';
 import DropDownFont from './DropDownFont';
 import DropDownSize from './DropDownSize';
 import ColorSwatchSelector from './ColorSwatchSelector';
-import ViewModeSelector from '@/app/_components/common/ViewModeSelector';
+import ViewModeSelector from '@/app/components/custom/common/ViewModeSelector';
 import CheckBoxSelector from './CheckBoxSelector';
 import {
   ColorType,

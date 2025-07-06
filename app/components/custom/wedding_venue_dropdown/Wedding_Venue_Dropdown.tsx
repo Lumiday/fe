@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import CheckBoxGroup from '@/app/_components/common/CheckBoxGroup';
-import DropDownBig from '@/app/_components/common/DropDownBig';
-import CommonInput from '@/app/_components/common/CommonInput';
+import CheckBoxGroup from '@/app/components/custom/common/CheckBoxGroup';
+import DropDownBig from '@/app/components/custom/common/DropDownBig';
+import CommonInput from '@/app/components/custom/common/CommonInput';
 import { useState } from 'react';
 
 const Wedding_Venue_Dropdown = () => {
