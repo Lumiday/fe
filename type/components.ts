@@ -108,3 +108,9 @@ export interface AudioPlayerProps {
 export interface RSVPContentsProps {
   [key: string]: string;
 }
+
+export interface EndingContentsProps {
+  title: string;
+  contents: string;
+  image: File[];
+}
