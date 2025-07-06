@@ -4,7 +4,7 @@ import { useState } from 'react';
 import PersonInfoInput from './PersonInfoInput';
 import { PersonInfo } from '@/type/components';
 import DropDownBig from '../common/DropDownBig';
-import ViewModeSelector from '@/app/_components/common/ViewModeSelector';
+import ViewModeSelector from '@/app/components/custom/common/ViewModeSelector';
 
 const patterns = [
   { value: '표시 안 함', label: '표시 안 함' },

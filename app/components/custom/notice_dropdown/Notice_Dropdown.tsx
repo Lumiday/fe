@@ -1,7 +1,7 @@
 'use client';
 
-import DropDownBig from '@/app/_components/common/DropDownBig';
-import CommonInput from '@/app/_components/common/CommonInput';
+import DropDownBig from '@/app/components/custom/common/DropDownBig';
+import CommonInput from '@/app/components/custom/common/CommonInput';
 import { useState } from 'react';
 
 interface FormState {

@@ -1,5 +1,5 @@
 //
-import AddBtn from '@/app/_components/common/AddBtn';
+import AddBtn from '@/app/components/custom/common/AddBtn';
 import { useState } from 'react';
 
 type SideType = '신랑측' | '신부측';

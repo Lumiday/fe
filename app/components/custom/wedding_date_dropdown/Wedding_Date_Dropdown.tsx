@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import CheckBoxGroup from '@/app/_components/common/CheckBoxGroup';
-import DropDownBig from '@/app/_components/common/DropDownBig';
-import DropDownTime from '@/app/_components/wedding_date_dropdown/DropDownTime';
-import DropDownDate from '@/app/_components/wedding_date_dropdown/DropDownDate';
+import CheckBoxGroup from '@/app/components/custom/common/CheckBoxGroup';
+import DropDownBig from '@/app/components/custom/common/DropDownBig';
+import DropDownTime from '@/app/components/custom/wedding_date_dropdown/DropDownTime';
+import DropDownDate from '@/app/components/custom/wedding_date_dropdown/DropDownDate';
 
 const Wedding_Date_Dropdown = () => {
   const [displayOptionsStates, setDisplayOptionsStates] = useState<

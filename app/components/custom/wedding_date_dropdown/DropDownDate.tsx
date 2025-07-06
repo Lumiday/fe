@@ -3,13 +3,13 @@
 import React from 'react';
 import { ChevronDownIcon } from 'lucide-react';
 
-import { Button } from '@/components/ui/button';
-import { Calendar } from '@/components/ui/calendar';
+import { Button } from '@/app/components/ui/button';
+import { Calendar } from '@/app/components/ui/calendar';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/components/ui/popover';
+} from '@/app/components/ui/popover';
 
 const DropDownDate = () => {
   const [open, setOpen] = React.useState(false);
