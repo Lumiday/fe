@@ -14,10 +14,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`antialiased  `}>
+    <html lang="ko">
+      <body className={`antialiased`}>
         <Header />
-        <div className=" w-[69.5025rem] m-auto"> {children}</div>
+        <div className=" w-[69.5025rem] m-auto bg-[green]"> {children}</div>
       </body>
     </html>
   );
