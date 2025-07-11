@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import Header from '@/app/components/custom/common/Header';
+import CustomLayout from '@/app/CustomLayout';
 
 export const metadata: Metadata = {
   title: 'Lumiday',
@@ -14,10 +14,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`antialiased  `}>
-        <Header />
-        <div className=" w-[69.5025rem] m-auto"> {children}</div>
+    <html lang="ko">
+      <body className={`antialiased`}>
+        <CustomLayout>
+          <div className=" w-[69.5025rem] m-auto bg-[green]">{children}</div>
+        </CustomLayout>
       </body>
     </html>
   );
