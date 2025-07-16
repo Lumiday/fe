@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="ko">
       <body className={`antialiased`}>
         <CustomLayout>
-          <div className=" w-[69.5025rem] m-auto bg-[green]">{children}</div>
+          <div className=" w-[69.5025rem] bg-[green]">{children}</div>
         </CustomLayout>
       </body>
     </html>
