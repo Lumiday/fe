@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import { EndingContentsProps } from '@/type/components';
-import DropDownBig from '../common/DropDownBig';
 import Image from 'next/image';
+import DropDownBig from '../common/DropDownBig';
 import CommonInputSize from '../common/CommonInputSize';
 import CommonTextAreaSize from '../common/CommonTextAreaSize';
 import ImageUploader from '../gallery_dropdown/ImageUploader';

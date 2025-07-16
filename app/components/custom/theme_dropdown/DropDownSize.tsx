@@ -5,7 +5,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
+} from '@/app/components/ui/select';
 import { SizeType, SizeOption } from '@/type/components';
 
 interface DropDownSizeProps {
